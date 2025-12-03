@@ -1,9 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Bookstore.Domain.Books;
+﻿using Bookstore.Domain.Books;
 
 namespace Bookstore.Domain.Carts
 {
-    [Table("shoppingcartitem", Schema = "bobsusedbookstore_dbo")]
     public class ShoppingCartItem : Entity
     {
         // An empty constructor is required by EF Core
@@ -18,18 +16,14 @@ namespace Bookstore.Domain.Carts
             WantToBuy = wantToBuy;
         }
 
-        [Column("shoppingcartid")]
         public int ShoppingCartId { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
 
-        [Column("bookid")]
         public int BookId { get; set; }
         public Book Book { get; set; }
 
-        [Column("quantity")]
         public int Quantity { get; set; }
 
-        [Column("wanttobuy")]
         public int WantToBuy { get; set; }
     }
 }
